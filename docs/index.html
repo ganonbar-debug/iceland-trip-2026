@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איסלנד 2026 | חווית שייט של פעם בחיים</title>
+    
+    <!-- פונטים וספריות עיצוב -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Heebo:wght@800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Assistant', sans-serif; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .accent-gold { color: #D4AF37; }
+        .bg-navy { background-color: #0F172A; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center text-center text-white hero-gradient px-4">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-5xl md:text-7xl font-black mb-4 font-heebo">איסלנד 2026</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">שייט יוקרתי בין קרחונים, מפלים וזוהר צפוני. המסע שתזכרו תמיד.</p>
+            <a href="#register" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 shadow-xl">אני בפנים, ספרו לי עוד</a>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="bg-navy py-8 text-white">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-20 text-center">
+            <div class="flex flex-col items-center">
+                <span class="text-3xl mb-2">🛳️</span>
+                <span class="text-sm font-light">ספינת פאר All-Inclusive</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-3xl mb-2">🇮🇱</span>
+                <span class="text-sm font-light">מדריך ישראלי צמוד</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-3xl mb-2">🐋</span>
+                <span class="text-sm font-light">סיורי לווייתנים כלולים</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Itinerary Section -->
+    <section class="py-20 container mx-auto px-4">
+        <h2 class="text-4xl font-black text-center mb-16 font-heebo" data-aos="fade-down">מסלול המסע</h2>
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="flex flex-col md:flex-row gap-6 items-center" data-aos="fade-right">
+                <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold shrink-0">01</div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">נחיתה ברייקיאוויק</h3>
+                    <p class="text-slate-600">מפגש עם הצוות, העברה לספינה וארוחת ערב חגיגית מול המזח.</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6 items-center" data-aos="fade-right" data-aos-delay="100">
+                <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold shrink-0">02</div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">הפיורדים המערביים</h3>
+                    <p class="text-slate-600">שייט בין צוקים אדירים, תצפית על ציפורי פאפין נדירות וביקור בכפרי דייגים ציוריים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="register" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-xl relative z-10">
+            <div class="bg-white text-slate-900 p-8 md:p-12 rounded-3xl shadow-2xl" data-aos="zoom-in">
+                <h2 class="text-3xl font-black mb-6 text-center font-heebo">הבטיחו את מקומכם</h2>
+                <p class="text-center mb-8">השאירו פרטים ונחזור אליכם עם הצעה אישית למסע של פעם בחיים.</p>
+                <form class="space-y-4">
+                    <input type="text" placeholder="שם מלא" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                    <input type="email" placeholder="אימייל" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                    <input type="tel" placeholder="טלפון" class="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                    <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition duration-300 text-lg shadow-lg uppercase tracking-wider">שילחו לי פרטים</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-500 text-sm">
+        <p>© 2026 איסלנד אקספרדישן. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
