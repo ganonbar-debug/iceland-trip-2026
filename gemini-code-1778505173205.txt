@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>איסלנד 2026 | המסע המופלא</title>
+    <title>איסלנד 2026 | המסע המופלא של פעם בחיים</title>
     
-    <!-- Google Fonts -->
+    <!-- פונטים וספריות עיצוב -->
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- AOS Library for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -425,7 +423,7 @@
     <!-- Trust Bar -->
     <div class="trust-bar">
         <div class="trust-item">🚢 שייט 5 כוכבים All-Inclusive</div>
-        <div class="trust-item">מדריך ישראלי מומחה צמוד</div>
+        <div class="trust-item">🇮🇱 מדריך ישראלי מומחה צמוד</div>
         <div class="trust-item">❄️ ביקור בפיורדים הנסתרים ביותר</div>
     </div>
 
@@ -438,7 +436,6 @@
                 <h3>נחיתה ברייקיאוויק ועליה לספינה</h3>
                 <p>מפגש עם המדריך בנתב"ג, טיסה ישירה לרייקיאוויק וקבלת פנים יוקרתית על סיפון הספינה שתהיה הבית שלנו ב-10 הלילות הקרובים.</p>
             </div>
-            <!-- שאר ימי המסלול... -->
             <div class="itinerary-day" data-aos="fade-right">
                 <div class="day-circle">2</div>
                 <h3>חצי האי סנייפלסנס (Snæfellsnes)</h3>
@@ -448,6 +445,16 @@
                 <div class="day-circle">3</div>
                 <h3>הפיורדים המערביים (Isafjordur)</h3>
                 <p>אזור מבודד ופראי אליו מגיעים רק בשייט. תצפיות על ציפורי פאפין ומפלי דיניאנדי (Dynjandi) המרהיבים.</p>
+            </div>
+            <div class="itinerary-day" data-aos="fade-right">
+                <div class="day-circle">4-5</div>
+                <h3>צפון איסלנד - אקוריירי ולווייתנים</h3>
+                <p>ביקור בבירת הצפון, תצפית לווייתנים בקרבת החוף וטיול במפל גודפוס "מפל האלים".</p>
+            </div>
+            <div class="itinerary-day" data-aos="fade-right">
+                <div class="day-circle">6-11</div>
+                <h3>החוף המזרחי, הקרחונים והלגונה הכחולה</h3>
+                <p>שייט בין קרחוני ענק בלגונת יוקולסארלון, ביקור בחוף היהלומים וסיום מרגיע במים הטרמיים של הלגונה הכחולה לפני החזרה לארץ.</p>
             </div>
         </div>
     </section>
@@ -459,8 +466,42 @@
             <div class="included-row">
                 <div class="included-item">✈️ טיסות ישירות והעברות</div>
                 <div class="included-item">🍴 פנסיון מלא ברמת גורמה</div>
+                <div class="included-item">🚌 סיורי חוף עם אוטובוסים פרטיים</div>
             </div>
             <img src="https://images.unsplash.com/photo-1529963183134-61a90db47eaf?q=80&w=1200&auto=format&fit=crop" class="included-img" alt="הלגונה הכחולה" data-aos="zoom-in">
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="differentiation py-20 bg-slate-50">
+        <h2 class="text-center text-4xl font-black mb-12 font-heebo" data-aos="fade-down">למה שייט ולא טיול יבשתי?</h2>
+        <div class="comp-table-wrapper max-w-5xl mx-auto px-4" data-aos="zoom-in">
+            <table class="comp-table w-full border-collapse bg-white rounded-2xl shadow-xl overflow-hidden text-right">
+                <thead class="bg-navy text-white">
+                    <tr>
+                        <th class="p-6">המדד</th>
+                        <th class="p-6 highlight">השייט שלנו</th>
+                        <th class="p-6">טיול ג'יפים/אוטובוס</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b">
+                        <td class="p-5 font-bold">לוגיסטיקה</td>
+                        <td class="p-5 highlight">מזוודה אחת, חדר אחד קבוע</td>
+                        <td class="p-5">אריזה ופריקה מדי יום במלון אחר</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="p-5 font-bold">אוכל ושתייה</td>
+                        <td class="p-5 highlight">מסעדות שף ואלכוהול חופשי 24/7</td>
+                        <td class="p-5">עצירות בתחנות דלק ומסעדות מקומיות</td>
+                    </tr>
+                    <tr class="border-b">
+                        <td class="p-5 font-bold">זמן נטו לטיול</td>
+                        <td class="p-5 highlight">הספינה שטה בלילה, מטיילים ביום</td>
+                        <td class="p-5">6-10 שעות נסיעה ביום בכבישים</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -475,7 +516,7 @@
             </div>
             
             <div class="contact-form">
-                <h2>הצטרפו למסע המופלא של 2026</h2>
+                <h2 style="margin-bottom: 10px;">הצטרפו למסע המופלא של 2026</h2>
                 <form onsubmit="return false;">
                     <input type="text" placeholder="שם מלא" required>
                     <input type="tel" placeholder="טלפון נייד" required>
@@ -486,17 +527,16 @@
                         <option>2</option>
                         <option>3+</option>
                     </select>
-                    <button class="btn-submit">אני רוצה לשמוע עוד</button>
+                    <button class="btn-submit uppercase tracking-wider">שילחו לי פרטים</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer style="background: var(--primary-blue); color: white; padding: 40px; text-align: center;">
-        <p>&copy; 2026 איסלנד קרוז - כל הזכויות שמורות.</p>
+        <p>&copy; 2026 איסלנד קרוז. כל הזכויות שמורות.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
