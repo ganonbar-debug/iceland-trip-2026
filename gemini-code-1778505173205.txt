@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איסלנד 2026 | המסע המופלא</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0a192f;
+            --secondary-blue: #112240;
+            --accent-ice: #f0f4f8;
+            --text-dark: #1a202c;
+            --cta-gold: #c05621;
+            --success-green: #2f855a;
+            --overlay: rgba(0, 0, 0, 0.45);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Heebo', sans-serif; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(var(--overlay), var(--overlay)), 
+                        url('https://images.unsplash.com/photo-1504829857797-ddff29c2794f?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.2;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-content h2 {
+            font-size: clamp(1.2rem, 3.5vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            background-color: var(--cta-gold);
+            color: white;
+            padding: 22px 60px;
+            font-size: 1.4rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: white;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #edf2f7;
+            position: relative;
+            z-index: 10;
+        }
+
+        .trust-item {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            gap: 10px;
+        }
+
+        /* Itinerary Section */
+        .itinerary {
+            padding: 100px 5%;
+            background-color: white;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                        url('https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1500&auto=format&fit=crop') fixed center/cover;
+        }
+
+        .itinerary-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .itinerary-container::before {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .itinerary-day {
+            position: relative;
+            padding-right: 60px;
+            margin-bottom: 50px;
+        }
+
+        .day-circle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .itinerary-day h3 {
+            margin-top: 0;
+            color: var(--cta-gold);
+            font-size: 1.5rem;
+        }
+
+        /* Included Section */
+        .included {
+            padding: 80px 5%;
+            text-align: center;
+            background: #f8fafc;
+        }
+
+        .included-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .included-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .included-item {
+            padding: 15px 30px;
+            background: white;
+            border-radius: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        .included-img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Differentiation Table */
+        .differentiation {
+            padding: 80px 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .comp-table-wrapper {
+            overflow-x: auto;
+            margin-top: 40px;
+        }
+
+        .comp-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border-collapse: collapse;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .comp-table th, .comp-table td {
+            padding: 18px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .comp-table th { background: var(--primary-blue); color: white; }
+        .highlight { background: #fffcf0; font-weight: bold; color: var(--cta-gold); }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 5%;
+            background: #f1f5f9;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-blue);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #4a5568;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 500px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 5%;
+            background: var(--primary-blue);
+            color: white;
+            text-align: center;
+            background-image: linear-gradient(rgba(10, 25, 47, 0.92), rgba(10, 25, 47, 0.92)), url('https://images.unsplash.com/photo-1529963183134-61a90db47eaf?q=80&w=1500&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .testi-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: right;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testi-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-section { padding: 100px 5%; background: white; }
+        .contact-box {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            min-height: 600px;
+        }
+
+        .contact-img { 
+            flex: 1.2; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-img-text {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-img-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-form { 
+            flex: 1; 
+            padding: 60px; 
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: right;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            text-align: right;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background: var(--cta-gold);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #a0451b;
+        }
+
+        @media (max-width: 992px) {
+            .contact-box { flex-direction: column; }
+            .contact-img { min-height: 350px; }
+            .contact-form { padding: 40px 20px; }
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-container::before { right: 15px; }
+            .day-circle { width: 32px; height: 32px; right: 0; }
+            .itinerary-day { padding-right: 45px; }
+            .included-row { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>איסלנד 2026: המסע המופלא</h1>
+            <h2>שייט יוקרה סביב אי האש והקרח - הדרך הנוחה, המרתקת והיוקרתית ביותר לגלות את הטבע הפראי.</h2>
+            <a href="#register" class="cta-button">אני בפנים</a>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-item">🚢 שייט 5 כוכבים All-Inclusive</div>
+        <div class="trust-item">מדריך ישראלי מומחה צמוד</div>
+        <div class="trust-item">❄️ ביקור בפיורדים הנסתרים ביותר</div>
+    </div>
+
+    <!-- Itinerary -->
+    <section class="itinerary">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-blue);" data-aos="fade-down">מסלול המסע: 11 ימים של פלא</h2>
+        <div class="itinerary-container">
+            <div class="itinerary-day" data-aos="fade-right">
+                <div class="day-circle">1</div>
+                <h3>נחיתה ברייקיאוויק ועליה לספינה</h3>
+                <p>מפגש עם המדריך בנתב"ג, טיסה ישירה לרייקיאוויק וקבלת פנים יוקרתית על סיפון הספינה שתהיה הבית שלנו ב-10 הלילות הקרובים.</p>
+            </div>
+            <!-- שאר ימי המסלול... -->
+            <div class="itinerary-day" data-aos="fade-right">
+                <div class="day-circle">2</div>
+                <h3>חצי האי סנייפלסנס (Snæfellsnes)</h3>
+                <p>ביקור ב"איסלנד בזעיר אנפין" - הר קירקיופל המפורסם, כפרי דייגים ציוריים ונופי בזלת עוצרי נשימה.</p>
+            </div>
+            <div class="itinerary-day" data-aos="fade-right">
+                <div class="day-circle">3</div>
+                <h3>הפיורדים המערביים (Isafjordur)</h3>
+                <p>אזור מבודד ופראי אליו מגיעים רק בשייט. תצפיות על ציפורי פאפין ומפלי דיניאנדי (Dynjandi) המרהיבים.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included -->
+    <section class="included">
+        <h2 data-aos="fade-up">הכל כלול - בלי הפתעות</h2>
+        <div class="included-grid">
+            <div class="included-row">
+                <div class="included-item">✈️ טיסות ישירות והעברות</div>
+                <div class="included-item">🍴 פנסיון מלא ברמת גורמה</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1529963183134-61a90db47eaf?q=80&w=1200&auto=format&fit=crop" class="included-img" alt="הלגונה הכחולה" data-aos="zoom-in">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="register">
+        <div class="contact-box" data-aos="zoom-in">
+            <div class="contact-img">
+                <div class="contact-img-text">
+                    <h3>המסע שלך מתחיל כאן</h3>
+                    <p>נציג מומחה יחזור אליך עם כל הפרטים</p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>הצטרפו למסע המופלא של 2026</h2>
+                <form onsubmit="return false;">
+                    <input type="text" placeholder="שם מלא" required>
+                    <input type="tel" placeholder="טלפון נייד" required>
+                    <input type="email" placeholder="כתובת אימייל">
+                    <select>
+                        <option>מספר משתתפים</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3+</option>
+                    </select>
+                    <button class="btn-submit">אני רוצה לשמוע עוד</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary-blue); color: white; padding: 40px; text-align: center;">
+        <p>&copy; 2026 איסלנד קרוז - כל הזכויות שמורות.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
