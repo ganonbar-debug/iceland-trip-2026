@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איסלנד 2026 - מסלול הטיול</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 20px; line-height: 1.7; }
+        header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; text-align: center; padding: 2.5rem 1rem; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        header h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
+        header p { margin: 0; opacity: 0.9; font-size: 1.1rem; }
+        nav { text-align: center; margin-bottom: 30px; background: white; padding: 12px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        nav a { color: #2563eb; text-decoration: none; font-weight: 600; margin: 0 12px; transition: color 0.2s; }
+        nav a:hover { color: #1d4ed8; text-decoration: underline; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .day { border-right: 4px solid #2563eb; padding-right: 20px; margin-bottom: 30px; }
+        .day h3 { color: #1e3a8a; margin-top: 0; font-size: 1.3rem; }
+        .cta-btn { display: inline-block; background: #2563eb; color: white; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: bold; margin-top: 20px; transition: background 0.2s; }
+        .cta-btn:hover { background: #1d4ed8; }
+        .cta-container { text-align: center; margin-top: 30px; }
+        footer { text-align: center; margin-top: 50px; font-size: 0.9em; color: #64748b; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>איסלנד 2026: המסע המופלא</h1>
+        <p>תוכנית המסלול: יום אחר יום בדרך לחוויה של פעם בחיים</p>
+    </header>
+
+    <nav>
+        <a href="index.html">עמוד הבית</a> |
+        <a href="attractions.html">אטרקציות</a> |
+        <a href="itinerary.html">מסלול יומיומי</a> |
+        <a href="tips.html">טיפים והיערכות</a> |
+        <a href="contact.html">צור קשר</a>
+    </nav>
+
+    <div class="container">
+        <div class="day">
+            <h3>יום 1: נחיתה ב-Keflavík וסיור ראשוני ברייקיאויק</h3>
+            <p>איסוף רכב השכירה בשדה התעופה, נסיעה אל עיר הבירה הצפונית והיכרות ראשונה עם הקסם האיסלנדי: ביקור בכנסיית Hallgrímskirkja האייקונית ושיטוט ברחובותיה הציוריים של רייקיאויק.</p>
+        </div>
+        <div class="day">
+            <h3>יום 2: המסלול הקלאסי – מעגל הזהב</h3>
+            <p>יציאה לסיור מרהיב בין שלוש תחנות חובה: הפארק הלאומי תינגווליר, צפייה בהתפרצות הגייזר Strokkur ומפלי גולפוס השוצפים.</p>
+        </div>
+        <div class="day">
+            <h3>יום 3: פלאי החוף הדרומי</h3>
+            <p>נסיעה נופית עוצרת נשימה לאורך רצועת החוף הדרומית, ביקור במפלי Seljalandsfoss ו-Skógafoss, וסיום בחוף החול השחור המהפנט ליד העיירה ויק (Vík).</p>
+        </div>
+        <div class="day">
+            <h3>יום 4: ממלכת הקרחונים – סקאפטאפל ולגונת Jökulsárlón</h3>
+            <p>יום שכולו עוצמה טבעית: הליכה רגלית בשמורת סקאפטאפל, שיט או תצפית על גושי הקרח הצפים בלגונת Jökulsárlón, וביקור בחוף היהלומים.</p>
+        </div>
+    </div>
+
+    <div class="cta-container">
+        <a href="tips.html" class="cta-btn">להמשך לטיפים והיערכות לטיול ➔</a>
+    </div>
+
+    <footer>
+        <p>© 2026 איסלנד: המסע המופלא | כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>
