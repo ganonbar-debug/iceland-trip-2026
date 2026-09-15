@@ -1,7 +1,140 @@
-<nav>
-    <a href="index.html">עמוד הבית</a> |
-    <a href="attractions.html">אטרקציות</a> |
-    <a href="itinerary.html">מסלול יומיומי</a> |
-    <a href="tips.html">טיפים והיערכות</a> |
-    <a href="contact.html">צור קשר</a>
-</nav>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איסלנד 2026: המסע המופלא</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; line-height: 1.7; min-height: 100vh; }
+        .main-wrapper { max-width: 900px; margin: 0 auto; background: #1e293b; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        
+        header { text-align: center; padding: 1.5rem 1rem; border-bottom: 1px solid #334155; margin-bottom: 20px; }
+        header h1 { margin: 0 0 10px 0; font-size: 2.2rem; color: #38bdf8; text-shadow: 0 2px 10px rgba(56,189,248,0.2); }
+        header p { margin: 0; color: #94a3b8; font-size: 1.1rem; }
+        
+        /* תפריט ניווט אחיד שלא נחתך */
+        nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 20px; background: #0f172a; padding: 12px 20px; border-radius: 30px; margin-bottom: 30px; border: 1px solid #334155; }
+        nav button { background: none; border: none; color: #94a3b8; font-weight: 600; font-size: 1rem; cursor: pointer; padding: 6px 14px; border-radius: 20px; transition: all 0.3s ease; font-family: inherit; }
+        nav button:hover, nav button.active { color: #ffffff; background: #2563eb; box-shadow: 0 2px 10px rgba(37,99,235,0.4); }
+        
+        /* אזור התוכן המתחלף */
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; font-size: 1.5rem; margin-top: 0; }
+        ul { padding-right: 20px; }
+        li { margin-bottom: 12px; color: #cbd5e1; }
+        li strong { color: #f1f5f9; }
+
+        /* טופס צור קשר מעוצב */
+        .form-group { margin-bottom: 18px; }
+        label { display: block; margin-bottom: 6px; color: #38bdf8; font-weight: 600; }
+        input, textarea { width: 100%; padding: 10px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; font-family: inherit; }
+        input:focus, textarea:focus { outline: none; border-color: #38bdf8; }
+        .submit-btn { background: #2563eb; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; transition: background 0.2s; font-size: 1rem; }
+        .submit-btn:hover { background: #1d4ed8; }
+
+        footer { text-align: center; margin-top: 40px; font-size: 0.85em; color: #64748b; border-top: 1px solid #334155; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <header>
+            <h1>איסלנד 2026: המסע המופלא</h1>
+            <p id="sub-title">ברוכים הבאים למדריך המסע המלא</p>
+        </header>
+
+        <nav>
+            <button class="active" onclick="openTab('home', 'ברוכים הבאים למדריך המסע המלא', this)">עמוד הבית</button>
+            <button onclick="openTab('attractions', 'האטרקציות והאתרים המרכזיים', this)">אטרקציות</button>
+            <button onclick="openTab('itinerary', 'תוכנית המסלול לפי ימים', this)">מסלול יומיומי</button>
+            <button onclick="openTab('tips', 'טיפים זהב והיערכות נכונה לחוויה מושלמת', this)">טיפים והיערכות</button>
+            <button onclick="openTab('contact', 'נשמח לשמוע ממך לכל שאלה', this)">צור קשר</button>
+        </nav>
+
+        <!-- עמוד בית -->
+        <div id="home" class="tab-content active">
+            <h2>אודות המסע</h2>
+            <p>איסלנד היא ארץ של ניגודים מרהיבים: קרחונים לצד הרי געש פעילים, מפלים גועשים ומעיינות חמים. מדריך זה ילווה אתכם צעד אחר צעד בתכנון הטיול המושלם.</p>
+        </div>
+
+        <!-- אטרקציות -->
+        <div id="attractions" class="tab-content">
+            <h2>אטרקציות מרכזיות</h2>
+            <ul>
+                <li><strong>מעגל הזהב:</strong> גייזיר, מפרל גולפוס והפארק הלאומי תינגווליר.</li>
+                <li><strong>החוף השחור (Reynisfjara):</strong> עמודי בזלת מרשימים וגלים עוצמתיים.</li>
+                <li><strong>הלגונה הכחולה:</strong> רחצה מפנקת במים גיאותרמיים עשירים במינרלים.</li>
+            </ul>
+        </div>
+
+        <!-- מסלול יומיומי -->
+        <div id="itinerary" class="tab-content">
+            <h2>מסלול לפי ימים</h2>
+            <ul>
+                <li><strong>יום 1:</strong> נחיתה ב-Keflavík, איסוף הרכב ונסיעה לריקיאביק.</li>
+                <li><strong>יום 2:</strong> סיור במעגל הזהב שלינה באזור סלפוס.</li>
+                <li><strong>יום 3:</strong> הדרום הקסום – מפלי סליאלאנדספוס וסקוגפוס.</li>
+            </ul>
+        </div>
+
+        <!-- טיפים והיערכות -->
+        <div id="tips" class="tab-content">
+            <h2>ציוד והיערכות חובה</h2>
+            <ul>
+                <li><strong>לבוש בשיטת השכבות:</strong> התארגנו מראש עם שכבה תרמית נושמת, שכבה מחממת وشכבה חיצונית אוטמת לחלוטין נגד רוח וגשם.</li>
+                <li><strong>נעלי הליכה עמידות למים:</strong> ציוד נדרש וחשוב למסלולי הליכה סביב המפלים ולתנאי השטח.</li>
+                <li><strong>מעקב יומיומי אחר מזג האוויר:</strong> בדיקה בקרתית ב-vedur.is ו-road.is.</li>
+            </ul>
+        </div>
+
+        <!-- צור קשר -->
+        <div id="contact" class="tab-content">
+            <h2>צור קשר</h2>
+            <form onsubmit="alert('הודעתך נשלחה בהצלחה!'); return false;">
+                <div class="form-group">
+                    <label>שם מלא:</label>
+                    <input type="text" required placeholder="הכנס את שמך">
+                </div>
+                <div class="form-group">
+                    <label>דוא"ל:</label>
+                    <input type="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>הודעה:</label>
+                    <textarea rows="4" required placeholder="איך נוכל לעזור?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">שליחת הודעה</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>© 2026 איסלנד: המסע המופלא | כל הזכויות שמורות</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(tabId, subTitleText, btnElement) {
+            // הסרת מחלקת active מכל הלשוניות והכפתורים
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // הפעלת בלוק התוכן והכפתור הנבחר
+            document.getElementById(tabId).classList.add('active');
+            btnElement.classList.add('active');
+            
+            // עדכון כותרת המשנה
+            document.getElementById('sub-title').innerText = subTitleText;
+        }
+    </script>
+</body>
+</html>
