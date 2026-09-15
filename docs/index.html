@@ -5,136 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>איסלנד 2026: המסע המופלא</title>
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; line-height: 1.7; min-height: 100vh; }
-        .main-wrapper { max-width: 900px; margin: 0 auto; background: #1e293b; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #334155; }
-        
-        header { text-align: center; padding: 1.5rem 1rem; border-bottom: 1px solid #334155; margin-bottom: 20px; }
-        header h1 { margin: 0 0 10px 0; font-size: 2.2rem; color: #38bdf8; text-shadow: 0 2px 10px rgba(56,189,248,0.2); }
-        header p { margin: 0; color: #94a3b8; font-size: 1.1rem; }
-        
-        /* תפריט ניווט אחיד שלא נחתך */
-        nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 20px; background: #0f172a; padding: 12px 20px; border-radius: 30px; margin-bottom: 30px; border: 1px solid #334155; }
-        nav button { background: none; border: none; color: #94a3b8; font-weight: 600; font-size: 1rem; cursor: pointer; padding: 6px 14px; border-radius: 20px; transition: all 0.3s ease; font-family: inherit; }
-        nav button:hover, nav button.active { color: #ffffff; background: #2563eb; box-shadow: 0 2px 10px rgba(37,99,235,0.4); }
-        
-        /* אזור התוכן המתחלף */
-        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .tab-content.active { display: block; }
+        /* איפוס והגדרות בסיס */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background-color: #0b1120; color: #f8fafc; line-height: 1.8; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* תפריט ניווט דביק */
+        header.nav-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
         }
+        .logo { font-weight: 800; font-size: 1.2rem; color: #38bdf8; text-decoration: none; letter-spacing: 0.5px; }
+        nav.nav-links { display: flex; gap: 15px; }
+        nav.nav-links a { color: #cbd5e1; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
+        nav.nav-links a:hover { color: #38bdf8; }
 
-        h2 { color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; font-size: 1.5rem; margin-top: 0; }
-        ul { padding-right: 20px; }
-        li { margin-bottom: 12px; color: #cbd5e1; }
-        li strong { color: #f1f5f9; }
+        /* הראשי / Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(180deg, rgba(11, 17, 32, 0.4) 0%, rgba(11, 17, 32, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px; margin-top: 50px;
+        }
+        .hero h1 { font-size: 3rem; color: #ffffff; text-shadow: 0 4px 20px rgba(0,0,0,0.6); margin-bottom: 15px; }
+        .hero p { font-size: 1.25rem; color: #e2e8f0; max-width: 650px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); margin-bottom: 25px; }
+        .btn-main { background: #2563eb; color: white; text-decoration: none; padding: 12px 28px; border-radius: 30px; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37,99,235,0.4); }
+        .btn-main:hover { background: #1d4ed8; transform: translateY(-2px); }
 
-        /* טופס צור קשר מעוצב */
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 6px; color: #38bdf8; font-weight: 600; }
-        input, textarea { width: 100%; padding: 10px 14px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; font-family: inherit; }
-        input:focus, textarea:focus { outline: none; border-color: #38bdf8; }
-        .submit-btn { background: #2563eb; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; transition: background 0.2s; font-size: 1rem; }
+        /* סקשנים כלליים */
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.2rem; color: #38bdf8; margin-bottom: 10px; }
+        .section-title p { color: #94a3b8; font-size: 1.05rem; }
+
+        /* כרטיסיות גריד (אטרקציות) בסיגנון אינסטגרם */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .card { background: #1e293b; border-radius: 16px; overflow: hidden; border: 1px solid #334155; transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card-content h3 { color: #38bdf8; margin-bottom: 10px; font-size: 1.25rem; }
+        .card-content p { color: #cbd5e1; font-size: 0.95rem; }
+
+        /* מסלול יומיומי */
+        .itinerary-list { display: flex; flex-direction: column; gap: 20px; }
+        .day-box { background: #1e293b; padding: 25px; border-radius: 12px; border-right: 4px solid #38bdf8; border: 1px solid #334155; border-right-width: 4px; }
+        .day-box h3 { color: #38bdf8; margin-bottom: 8px; font-size: 1.2rem; }
+        .day-box p { color: #cbd5e1; font-size: 1rem; }
+
+        /* טיפים - טיפוגרפיה מעוצבת */
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .tip-item { background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #334155; }
+        .tip-item strong { color: #38bdf8; display: block; margin-bottom: 6px; font-size: 1.05rem; }
+
+        /* טופס צור קשר */
+        .contact-form { background: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #38bdf8; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: white; font-family: inherit; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #38bdf8; }
+        .submit-btn { background: #2563eb; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; transition: background 0.3s; font-size: 1.05rem; }
         .submit-btn:hover { background: #1d4ed8; }
 
-        footer { text-align: center; margin-top: 40px; font-size: 0.85em; color: #64748b; border-top: 1px solid #334155; padding-top: 15px; }
+        footer { text-align: center; padding: 30px 20px; background: #0f172a; color: #64748b; font-size: 0.9rem; border-top: 1px solid #334155; }
+
+        /* התאמה לסלולר */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
+            .hero p { font-size: 1.05rem; }
+            nav.nav-links { gap: 8px; font-size: 0.85rem; }
+            section { padding: 50px 15px; }
+        }
     </style>
 </head>
 <body>
-    <div class="main-wrapper">
-        <header>
-            <h1>איסלנד 2026: המסע המופלא</h1>
-            <p id="sub-title">ברוכים הבאים למדריך המסע המלא</p>
-        </header>
 
-        <nav>
-            <button class="active" onclick="openTab('home', 'ברוכים הבאים למדריך המסע המלא', this)">עמוד הבית</button>
-            <button onclick="openTab('attractions', 'האטרקציות והאתרים המרכזיים', this)">אטרקציות</button>
-            <button onclick="openTab('itinerary', 'תוכנית המסלול לפי ימים', this)">מסלול יומיומי</button>
-            <button onclick="openTab('tips', 'טיפים זהב והיערכות נכונה לחוויה מושלמת', this)">טיפים והיערכות</button>
-            <button onclick="openTab('contact', 'נשמח לשמוע ממך לכל שאלה', this)">צור קשר</button>
+    <!-- תפריט ניווט עליון קבוע -->
+    <header class="nav-header">
+        <a href="#hero" class="logo">איסלנד 2026</a>
+        <nav class="nav-links">
+            <a href="#about">אודות</a>
+            <a href="#attractions">אטרקציות</a>
+            <a href="#itinerary">מסלול</a>
+            <a href="#tips">טיפים</a>
+            <a href="#contact">צור קשר</a>
         </nav>
+    </header>
 
-        <!-- עמוד בית -->
-        <div id="home" class="tab-content active">
-            <h2>אודות המסע</h2>
-            <p>איסלנד היא ארץ של ניגודים מרהיבים: קרחונים לצד הרי געש פעילים, מפלים גועשים ומעיינות חמים. מדריך זה ילווה אתכם צעד אחר צעד בתכנון הטיול המושלם.</p>
-        </div>
-
-        <!-- אטרקציות -->
-        <div id="attractions" class="tab-content">
-            <h2>אטרקציות מרכזיות</h2>
-            <ul>
-                <li><strong>מעגל הזהב:</strong> גייזיר, מפרל גולפוס והפארק הלאומי תינגווליר.</li>
-                <li><strong>החוף השחור (Reynisfjara):</strong> עמודי בזלת מרשימים וגלים עוצמתיים.</li>
-                <li><strong>הלגונה הכחולה:</strong> רחצה מפנקת במים גיאותרמיים עשירים במינרלים.</li>
-            </ul>
-        </div>
-
-        <!-- מסלול יומיומי -->
-        <div id="itinerary" class="tab-content">
-            <h2>מסלול לפי ימים</h2>
-            <ul>
-                <li><strong>יום 1:</strong> נחיתה ב-Keflavík, איסוף הרכב ונסיעה לריקיאביק.</li>
-                <li><strong>יום 2:</strong> סיור במעגל הזהב שלינה באזור סלפוס.</li>
-                <li><strong>יום 3:</strong> הדרום הקסום – מפלי סליאלאנדספוס וסקוגפוס.</li>
-            </ul>
-        </div>
-
-        <!-- טיפים והיערכות -->
-        <div id="tips" class="tab-content">
-            <h2>ציוד והיערכות חובה</h2>
-            <ul>
-                <li><strong>לבוש בשיטת השכבות:</strong> התארגנו מראש עם שכבה תרמית נושמת, שכבה מחממת وشכבה חיצונית אוטמת לחלוטין נגד רוח וגשם.</li>
-                <li><strong>נעלי הליכה עמידות למים:</strong> ציוד נדרש וחשוב למסלולי הליכה סביב המפלים ולתנאי השטח.</li>
-                <li><strong>מעקב יומיומי אחר מזג האוויר:</strong> בדיקה בקרתית ב-vedur.is ו-road.is.</li>
-            </ul>
-        </div>
-
-        <!-- צור קשר -->
-        <div id="contact" class="tab-content">
-            <h2>צור קשר</h2>
-            <form onsubmit="alert('הודעתך נשלחה בהצלחה!'); return false;">
-                <div class="form-group">
-                    <label>שם מלא:</label>
-                    <input type="text" required placeholder="הכנס את שמך">
-                </div>
-                <div class="form-group">
-                    <label>דוא"ל:</label>
-                    <input type="email" required placeholder="your@email.com">
-                </div>
-                <div class="form-group">
-                    <label>הודעה:</label>
-                    <textarea rows="4" required placeholder="איך נוכל לעזור?"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">שליחת הודעה</button>
-            </form>
-        </div>
-
-        <footer>
-            <p>© 2026 איסלנד: המסע המופלא | כל הזכויות שמורות</p>
-        </footer>
+    <!-- עמוד הבית / Hero -->
+    <div id="hero" class="hero">
+        <h1>איסלנד 2026: המסע המופלא</h1>
+        <p>ארץ הקרח והאש מחכה לכם – מדריך המסע המלא והיוקרתי</p>
+        <a href="#about" class="btn-main">התחילו לגלות ➔</a>
     </div>
 
-    <script>
-        function openTab(tabId, subTitleText, btnElement) {
-            // הסרת מחלקת active מכל הלשוניות והכפתורים
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            
-            // הפעלת בלוק התוכן והכפתור הנבחר
-            document.getElementById(tabId).classList.add('active');
-            btnElement.classList.add('active');
-            
-            // עדכון כותרת המשנה
-            document.getElementById('sub-title').innerText = subTitleText;
-        }
-    </script>
+    <!-- אודות המסע -->
+    <section id="about">
+        <div class="section-title">
+            <h2>אודות המסע</h2>
+            <p>חוויה בלתי נשכחת בעולם של ניגודים עוצמתיים</p>
+        </div>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #cbd5e1; font-size: 1.1rem;">
+            איסלנד היא לא עוד יעד ברשימה – היא עולם אחר כמעט. עולם שבו קרחוני ענק לוחשים לצד הרי געש פעילים, מפלים גועשים נשפכים אל תוך קניונים עוצמתיים, ומעיינות חמים מזמינים אתכם להירגע מול נופים שאין כדוגמתם בתבל. בחרנו עבורכם את הנקודות המרהיבות ביותר, השילוב המדויק בין נופים דרמטיים, מסלולים נגישים והיערכות חכמה.
+        </p>
+    </section>
+
+    <!-- אטרקציות -->
+    <section id="attractions">
+        <div class="section-title">
+            <h2>אטרקציות ונקודות חובה</h2>
+            <p>פלאי הטבע המרשימים ביותר בטיול</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1529963183134-61a90db47eaf?auto=format&fit=crop&w=600&q=80" alt="מעגל הזהב">
+                <div class="card-content">
+                    <h3>מעגל הזהב (Golden Circle)</h3>
+                    <p>חוויה עוצרת נשימה המפגישה בין היסטוריה, גאולוגיה ועוצמה טבעית: פארק תינגווליר, התפרצויות הגייזר Strokkur ומפלי גולפוס השוצפים.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80" alt="מפלי הדרום">
+                <div class="card-content">
+                    <h3>מפלי הדרום الדרמטיים</h3>
+                    <p>מפגש מקרוב עם מפל Seljalandsfoss, המאפשר הליכה ייחודית מאחורי מסך המים, ומפל Skógafoss העוצמתי שיוצר קשתות מרהיבות.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="חוף החול השחור">
+                <div class="card-content">
+                    <h3>חוף החול השחור (Reynisfjara)</h3>
+                    <p>אחד החופים המפורסמים בעולם – עמודי בזלת גיאומטריים, חול שחור מגנטי וגלי אוקיינוס עוצמתיים המייצרים תפאורה דרמטית.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=600&q=80" alt="לגונת הקרחונים">
+                <div class="card-content">
+                    <h3>לגונת הקרחונים וחוף היהלומים</h3>
+                    <p>מראה בלתי נשכח ב-Jökulsárlón, שבה קרחוני ענק צפים בשקט, לצד חוף הים שבו שברי הקרח מונחים על החול השחור כיהלומים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- מסלול יומיומי -->
+    <section id="itinerary">
+        <div class="section-title">
+            <h2>תוכנית המסלול לפי ימים</h2>
+            <p>חוויה מתוכננת קפדנית של פעם בחיים</p>
+        </div>
+        <div class="itinerary-list">
+            <div class="day-box">
+                <h3>יום 1: נחיתה ב-Keflavík וסיור ראשוני ברייקיאויק</h3>
+                <p>איסוף רכב השכירה, נסיעה קצרה אל עיר הבירה הצפונית והיכרות ראשונה עם הקסם האיסלנדי: ביקור בכנסיית Hallgrímskirkja האייקונית ושיטוט ברחובותיה הציוריים.</p>
+            </div>
+            <div class="day-box">
+                <h3>יום 2: הקלאסיקה האיסלנדית – מעגל הזהב</h3>
+                <p>יציאה ליום גדוש בפלאי טבע: הפארק הלאומי תינגווליר, צפייה בהתפרצויות הגייזר וביקור במפלי גולפוס האדירים.</p>
+            </div>
+            <div class="day-box">
+                <h3>יום 3: עוצמת החוף הדרומי</h3>
+                <p>נסיעה נופית מרהיבה לאורך רצועת החוף הדרומית, סיור במפלי Seljalandsfoss ו-Skógafoss, וסיום בחוף החול השחור ליד העיירה ויק (Vík).</p>
+            </div>
+            <div class="day-box">
+                <h3>יום 4: ממלכת הקרח – סקאפטאפל ולגונת Jökulsárlón</h3>
+                <p>יום שכולו הוד והדר: הליכה בשמורת סקאפטאפל, צפייה בקרחונים הצפים בלגונה וסיור בחוף היהלומים המהפנט.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- טיפים והיערכות -->
+    <section id="tips">
+        <div class="section-title">
+            <h2>טיפים זהב והיערכות לחוויה מושלמת</h2>
+            <p>דגשים חשובים לפני שיצאתם לדרך</p>
+        </div>
+        <div class="tips-grid">
+            <div class="tip-item">
+                <strong>🧥 שיטת השכבות</strong>
+                מזג האוויר דינמי. הצטיידו בשכבה תרמית נושמת, שכבה מחממת (פליז/פוך קל) ושכבה חיצונית אוטמת לחלוטין נגד רוח וגשם.
+            </div>
+            <div class="tip-item">
+                <strong>🥾 נעלי הליכה עמידות למים</strong>
+                ציוד חובה למסלולים הסמוכים למפלים ולתנאי השטח של האי.
+            </div>
+            <div class="tip-item">
+                <strong>🏊‍♂️ בגד ים ומגבת בהישג יד</strong>
+                אל תפספסו טבילה במעיינות החמים ובבלו לייגון המפנקת.
+            </div>
+            <div class="tip-item">
+                <strong>🌤️ בדיקת תחזית יומיומית</strong>
+                התעדכנו מדי בוקר באתרים הרשמיים (vedur.is ו-road.is) לגבי מצב הכבישים ומזג האוויר.
+            </div>
+            <div class="tip-item">
+                <strong>🚗 כיסוי ביטוחי לרכב</strong>
+                מומלץ לבחור בביטוח מורחב הכולל נזקי חצץ, אפר ורוח.
+            </div>
+        </div>
+    </section>
+
+    <!-- צור קשר -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>צור קשר</h2>
+            <p>נשמח לשמוע ממך ולסייע בכל שאלה</p>
+        </div>
+        <form class="contact-form" onsubmit="alert('תודה! הודעתך התקבלה בהצלחה.'); return false;">
+            <div class="form-group">
+                <label for="name">שם מלא:</label>
+                <input type="text" id="name" required placeholder="הכנס את שמך">
+            </div>
+            <div class="form-group">
+                <label for="email">דוא"ל:</label>
+                <input type="email" id="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label for="message">הודעה / שאלה:</label>
+                <textarea id="message" rows="5" required placeholder="איך נוכל לעזור?"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">שליחת הודעה ➔</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 איסלנד: המסע המופלא | כל הזכויות שמורות</p>
+    </footer>
+
 </body>
 </html>
